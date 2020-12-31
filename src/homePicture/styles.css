@@ -1,0 +1,47 @@
+
+
+
+.homeImg{
+    background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80');
+    min-height: 800px;
+    background-position: center center;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.cover{
+    background-color: black;
+    min-height: 800px;
+    width: 100%;
+    opacity: 70%;
+    position: absolute;
+    top: 51px;
+    z-index: 10;
+}
+
+.storeName {
+    font-size: 50px;
+    position: absolute;
+    text-align: center;
+    top: 350px;
+    right: 0;
+    left: 0;
+    color: white;
+    z-index: 11;
+}
+
+@media (max-width: 800px){
+    .homeImg{
+        min-height: 400px;
+    }
+
+    .cover{
+        min-height: 400px;
+    }
+
+    .storeName{
+        top: 175px;
+    }
+}

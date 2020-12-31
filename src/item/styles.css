@@ -1,0 +1,99 @@
+p{
+    margin: 0px;
+}
+
+.portrait{
+    max-width: 1440px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 5fr 30px 25px 40px;
+}
+
+.portrait:hover > .picture{
+    transform: scale(1.04);
+}
+
+.portrait:hover > .sizes-a{
+    visibility: visible;
+}
+
+.sizes-a h2:hover{
+    background-color: black;
+    color: white;
+}
+
+.picture{
+    height: 100%;
+    width: 100%;
+    grid-row: 1/2;
+    transition:all 1s ease;
+}
+
+.picture img{
+    object-fit: cover;
+    max-height: 100%;
+    width: 100%;
+}
+
+.clothingInfo{
+    margin-left: 20px;
+    width: 80%;
+    grid-row:2/3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 23px;
+}
+
+.molder{
+    margin-left: 20px;
+    grid-row: 3/4;
+    display: flex;
+    flex-direction: row;
+    font-size: large;
+    justify-content: space-between;
+}
+
+.adder {
+    width: 100%;
+    align-items: center;
+    background-color: white;
+    border-color: black;
+    color: black;
+    opacity: 85%;
+    border-radius: 5px;
+}
+
+.sizes-a{
+    visibility: hidden;
+    margin-top: 5px;
+    grid-row: 4/5;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.sizes-a h2{
+    padding: 1px 1px 2px 1px;
+    height: 24px;
+    width: 24px;
+    margin: 0 10px 0 10px;
+    border-radius: 20px;
+
+}
+
+.selected{
+    background-color: black;
+    color: white;
+}
+
+@media(max-width: 320px){
+    .clothingInfo{
+        font-size: 20px;
+    }
+}
+
+

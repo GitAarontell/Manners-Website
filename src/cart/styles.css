@@ -1,0 +1,46 @@
+.container-c{
+    align-items: center;
+    justify-content: center;
+}
+
+.liner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.cartItem{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    height: 175px;
+    width: 400px;
+
+}
+
+.topFile{
+    width: 100%;
+    background-color: rgb(219, 219, 219);
+}
+
+.imageInformation img{
+    max-height: 150px;
+    max-width: 120px;
+}
+
+.flexCol{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flexCol h4{
+    margin: 0;
+}
+
+.characteristics button{
+    height: 23px;
+    width: 100px;
+}
+

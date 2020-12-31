@@ -1,0 +1,28 @@
+.container-a{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-a h1{
+    align-self: center;
+}
+
+.allContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.eachItem{
+    max-width: 300px;
+    min-width: 300px;
+    margin: 10px 20px 10px 20px;
+}
+
+@media(max-width: 320px){
+    .eachItem{
+        max-width: 250px;
+        min-width: 250px; 
+    }
+}
