@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, HashRouter, Route, Switch } from 'react-router-dom'
 import MainNav from './mainNav/MainNav'
 import HomePicture from './homePicture/HomePicture'
 import ProductContainer from './ProductContainer/ProductContainer'
@@ -22,7 +22,7 @@ function App() {
   
 
   return (
-    <Router className='higher'>
+    <HashRouter className='higher'>
       <div className="App">
 
         <header className="App-header">
@@ -73,7 +73,7 @@ function App() {
       </div>
 
 
-    </Router>
+    </HashRouter>
 
 
   );
