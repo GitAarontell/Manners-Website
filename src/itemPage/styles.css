@@ -1,6 +1,11 @@
 .size h2:hover {
     background-color: black;
     color: white;
+    cursor: pointer;
+}
+
+.addButton:hover{
+    cursor: pointer;
 }
 
 .holder{
