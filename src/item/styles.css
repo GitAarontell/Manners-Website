@@ -9,12 +9,13 @@ p{
     grid-template-rows: 5fr 30px 25px 40px;
 }
 
-.portrait:hover{
+.portrait button:hover{
     cursor: pointer;
 }
 
 .portrait:hover > .picture{
     transform: scale(1.04);
+    cursor: pointer;
 }
 
 .portrait:hover > .sizes-a{
@@ -24,6 +25,7 @@ p{
 .sizes-a h2:hover{
     background-color: black;
     color: white;
+    cursor: pointer;
 }
 
 .picture{
