@@ -21,7 +21,7 @@ function createReducer(name = '') {
     }
 }
 
-export function reducer(state = [], action) {
+function reducer(state = [], action) {
     switch (action.type) {
         case 'Add':
             return state.concat([action.payload]);

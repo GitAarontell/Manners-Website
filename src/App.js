@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, HashRouter, Route, Switch } from 'react-router-dom'
+import { HashRouter, Route, Switch } from 'react-router-dom'
 import MainNav from './mainNav/MainNav'
 import HomePicture from './homePicture/HomePicture'
 import ProductContainer from './ProductContainer/ProductContainer'

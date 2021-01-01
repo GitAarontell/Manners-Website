@@ -76,7 +76,7 @@ class ViewingItem extends React.Component {
                     <div className='size'>
                         <h2 id={0} className={this.array[0]} onClick={this.addSize}>S</h2>
                         <h2 id={1} className={this.array[1]} onClick={this.addSize}>M</h2>
-                        <h2 id={2} className={'border' + ' ' + this.array[2]} onClick={this.addSize}>L</h2>
+                        <h2 id={2} className={`border ${this.array[2]}`} onClick={this.addSize}>L</h2>
                     </div>
 
                     <div className='addButton'>
