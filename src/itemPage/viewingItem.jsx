@@ -9,6 +9,7 @@ class ViewingItem extends React.Component {
 
     constructor(props){
         super(props);
+        this.set = this.props.state;
         this.array = ['','selected',''];
         this.addSize = this.addSize.bind(this);
         this.state={
@@ -17,10 +18,10 @@ class ViewingItem extends React.Component {
             name: null,
             price: null,
             type: null,
-            size: 'Medium'
+            size: 'Med'
         }
     }
-
+    
     addSize = (e)=> {
         let arr = new Array(3).fill('');
         let id = e.target.id;
@@ -28,7 +29,7 @@ class ViewingItem extends React.Component {
         this.array[id] = 'selected';
         
         if(id > 0){
-            (id > 1) ? this.setState({size: 'Large'}) : this.setState({size: 'Medium'});
+            (id > 1) ? this.setState({size: 'Large'}) : this.setState({size: 'Med'});
         } else {
             this.setState({size: 'Small'});
         }
@@ -57,7 +58,7 @@ class ViewingItem extends React.Component {
 
     render() {
         
-
+        console.log(this.props.state);
         return (
             <div className='holder'>
 
@@ -80,7 +81,7 @@ class ViewingItem extends React.Component {
                     </div>
 
                     <div className='addButton'>
-                        <button onClick={() => this.props.dispatch(multiDispatch(this.state.type, this.state.name, this.state.size, this.state.loadImage, this.state.price))}>Add To Cart</button>
+                        <button onClick={() => this.props.dispatch(multiDispatch(this.state.type, this.state.name, this.state.size, this.state.loadImage, this.state.price, this.props.state))}>Add To Cart</button>
                     </div>
                 </div>
             </div>
@@ -92,5 +93,9 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch
 });
 
-export default connect(null, mapDispatchToProps)(ViewingItem);
+const mapStateToProps = (state) => ({
+    state
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ViewingItem);
 

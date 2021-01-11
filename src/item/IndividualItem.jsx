@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { multiDispatch } from '../redux.js'
 import './styles.css'
 
 
 function IndividualItem(props) {
+    let set = useSelector(state => state);
 
     let dispatch = useDispatch();
-    let [size, setSize] = useState('Medium');
+    let [size, setSize] = useState('Med');
     let [array, setArray] = useState(['','selected','']);
 
     let click = (e) => {
@@ -17,7 +18,7 @@ function IndividualItem(props) {
         array[e.target.id] = 'selected'; // using setArray hook didn't work properly, big issue
         
         if (e.target.id > 0) {
-            (e.target.id) > 1 ? setSize(size = 'Large') : setSize(size = 'Medium')
+            (e.target.id) > 1 ? setSize(size = 'Large') : setSize(size = 'Med')
         } else {
             setSize(size = 'Small');
         }
@@ -40,7 +41,7 @@ function IndividualItem(props) {
             </Link>
 
             <div className='molder'>
-                <button className='adder' onClick={() => dispatch(multiDispatch(props.object.type, props.object.name, size, props.object.clothing, props.object.price))}>Add To Cart</button>
+                <button className='adder' onClick={() => dispatch(multiDispatch(props.object.type, props.object.name, size, props.object.clothing, props.object.price, set))}>Add To Cart</button>
             </div>
 
             <div className='sizes-a'>

@@ -1,9 +1,9 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, connect } from 'react-redux'
 import CartItem from './CartItem'
 import './styles.css'
 
-function Cart() {
+function Cart(props) {
     let i = 0;
     let set = useSelector(state => state);
 
@@ -16,17 +16,21 @@ function Cart() {
         return cost;
     }
 
-    let totalCart = set.logCart.map((obj) => {
+    let totalCart = props.logCart.map((obj) => {
 
         return (
             <CartItem object={obj} key={i++} />
         );
     });
 
-
     return (
-        <div className='container-c flexCol'>
-            <h1>Cart</h1>
+        <div className='container-c'>
+            <div className='container-d'>
+                <h3>Product</h3>
+                <h3>Size</h3>
+                <h3>Quantity</h3>
+                <h3>Price</h3>
+            </div>
             {set.logTotal > 0 &&
                 <div className='totalCart-a'>
                     {totalCart}
@@ -37,4 +41,8 @@ function Cart() {
     );
 }
 
-export default Cart;
+function mapStateToProps (state) {
+    return {logCart: state.logCart};
+}
+
+export default connect(mapStateToProps)(Cart);

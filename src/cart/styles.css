@@ -1,49 +1,49 @@
 .container-c{
-    align-items: center;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
-.liner{
+.container-d{
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
 }
 
 .cartItem{
-    margin-top: 30px;
+    position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
     height: 175px;
-    width: 400px;
-
-}
-
-.topFile{
     width: 100%;
-    background-color: rgb(219, 219, 219);
 }
 
 .imageInformation img{
     max-height: 150px;
-    max-width: 120px;
+    max-width: 75px;
 }
 
-.flexCol{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
 
-.flexCol h4{
+h7{
     margin: 0;
 }
 
-.characteristics button{
-    height: 23px;
-    width: 100px;
+.characteristics{
+    position: absolute;
+    top: 45%;
+    left: 3%;
 }
 
-.characteristics button:hover{
+
+.characteristics img{
+    height: 20px;
+    width: 20px;
+}
+
+.characteristics:hover{
     cursor: pointer;
 }

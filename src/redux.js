@@ -27,19 +27,44 @@ function reducer(state = [], action) {
             return state.concat([action.payload]);
         case 'Remove':
             return state = action.payload;
+        case 'IncreaseQuantity':
+            return state = action.payload;
+        case 'DecreaseQuantity':
+            return state = action.payload;
         default:
             return state;
     }
 }
 
-export function add(name, size, pic, price) {
-    return {
-        type: 'Add',
-        payload: {
-            name: name,
-            size: size,
-            pic: pic,
-            price: price
+
+export function add(name, size, pic, price, state) {
+    let check = true;
+
+    if (state.logCart.size !== 0) {
+        state.logCart.map((obj) => {
+            if ((obj.size === size) && (obj.name === name)) {
+                check = false;
+                obj.quantity++;
+            }
+            return null;
+        });
+    }
+
+    if (check) {
+        return {
+            type: 'Add',
+            payload: {
+                name: name,
+                size: size,
+                pic: pic,
+                price: price,
+                quantity: 1
+            }
+        }
+    } else {
+        return {
+            type: 'IncreaseQuantity',
+            payload: state.logCart
         }
     }
 }
@@ -63,11 +88,27 @@ function deleter(state, object) {
         i++;
         return null;
     });
-    console.log('This is array: '+ array);
+
     return array;
 }
 
-export let multiDispatch = (info, name, size, pic, price) => {
+function DecreaseQuantity(state, object) {
+
+    state.logCart.map( (obj) => {
+        if (obj === object) {
+            obj.quantity--;
+        }
+
+        return null;
+    });
+
+    return ({
+        type: 'DecreaseQuantity',
+        payload: state.logCart
+    });
+}
+
+export let multiDispatch = (info, name, size, pic, price, state) => {
     return function (dispatch) {
         dispatch({
             type: 'Increment_'
@@ -78,7 +119,7 @@ export let multiDispatch = (info, name, size, pic, price) => {
         })
 
         dispatch(
-            add(name, size, pic, price)
+            add(name, size, pic, price, state)
         )
     }
 }
@@ -90,7 +131,20 @@ export let multiDispatchRemove = (state, object) => {
         })
 
         dispatch(
-            remove(state,object)
+            remove(state, object)
         )
     }
+}
+
+export let multiDispatchDecreaseQuantity = (state, object) => {
+    return function (dispatch) {
+        dispatch({
+            type: 'Decrement_'
+        })
+
+        dispatch(
+            DecreaseQuantity(state, object)
+        )
+    }
+
 }
