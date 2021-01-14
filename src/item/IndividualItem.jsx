@@ -23,7 +23,7 @@ function IndividualItem(props) {
             setSize(size = 'Small');
         }
     }
-
+    
     return (
         <div className='portrait'>
             

@@ -10,7 +10,7 @@ function Cart(props) {
     let totalCost = () => {
         let cost = 0;
         set.logCart.map((obj) => {
-            cost += obj.price;
+            cost += obj.price * obj.quantity;
             return null;
         });
         return cost;
@@ -26,7 +26,7 @@ function Cart(props) {
     return (
         <div className='container-c'>
             <div className='container-d'>
-                <h3>Product</h3>
+                <h3 style={{ fontSize: "25px" }}>Product</h3>
                 <h3>Size</h3>
                 <h3>Quantity</h3>
                 <h3>Price</h3>

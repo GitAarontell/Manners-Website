@@ -49,11 +49,11 @@ class MainNav extends React.Component {
     render() {
 
         return (
-            <div>
+            <div className='totalNav'>
                 <div className='spacer'></div>
 
-                <div className='navBar'>
-                    <div className='home'>
+                <div className='navBar grid'>
+                    <div className='home grid'>
 
                         <img className='storeImg' src="https://cdns.iconmonstr.com/wp-content/assets/preview/2017/96/iconmonstr-shop-13.png" alt="store" />
 
@@ -63,7 +63,7 @@ class MainNav extends React.Component {
 
                     </div>
 
-                    <div className='subNav'>
+                    <div className='subNav grid'>
                         <div className='shirts'> <Link to="/shirts">Shirts</Link> </div>
                         <div className='pants'> <Link to="/pants">Pants</Link> </div>
                         <div className='hats'> <Link to="/hats">Hats</Link> </div>
@@ -71,7 +71,7 @@ class MainNav extends React.Component {
                     </div>
 
 
-                    <div className='cart'>
+                    <div className='cart grid'>
                         <Link className='cartImg' to='/cart'>
                             <img src="https://cdns.iconmonstr.com/wp-content/assets/preview/2013/96/iconmonstr-shopping-cart-3.png" alt="shopping cart" />
                             {this.setCount(this.props.info.logTotal)}

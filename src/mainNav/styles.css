@@ -17,6 +17,10 @@ a{
     border-width: thin;
 }
 
+.grid{
+    display: grid;
+}
+
 .spacer{
     width: 100%;
     background-color: white;
@@ -24,22 +28,21 @@ a{
 }
 
 .navBar{
-    display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(1,minmax(50px,auto));
-    justify-self: center;
     width: 100%;
     font-size: 20px;
     position: fixed;
     background-color: white;
     top: 0;
     left: 0;
+    right: 0;
     z-index: 30;
-    box-shadow: 0px 0px 10px gray;
+    box-shadow: 0 4px 10px -10px gray;
+    margin: auto;
 }
 
 .home{
-    display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-gap: 10px;
     width: 100%;
@@ -76,7 +79,6 @@ a{
 }
 
 .cart{
-    display: grid;
     align-items: center;
     justify-content: center;
     grid-template-columns: repeat(4,1fr);   
@@ -94,7 +96,6 @@ a{
 }
 
 .subNav{
-    display: grid;
     grid-template-columns: repeat(4,1fr);
     justify-self: center;
     align-self: center;
@@ -168,6 +169,23 @@ a{
     margin-left: 5px;
 }
 
+@media(min-width: 1440px) {
+    .navBar{
+        grid-template-columns: 1fr 480px 480px 480px 1fr;
+    }
+
+    .home {
+        grid-column: 2/3;
+    }
+
+    .subNav{
+        grid-column: 3/4;
+    }
+
+    .cart{
+        grid-column: 4/5;
+    }
+}
 
 @media (max-width: 1336px) {
     .navBar{

@@ -1,6 +1,15 @@
+.container-c h3{
+    font-size: 23px;
+}
+
+.container-c button{
+    margin: 0 5px 0 5px;
+}
+
 .container-c{
     display: flex;
     flex-direction: column;
+    font-family: Arapey;
 }
 
 .container-d{
@@ -12,6 +21,7 @@
 }
 
 .cartItem{
+    font-family: Arapey;
     position: relative;
     display: flex;
     flex-direction: row;

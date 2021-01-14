@@ -9,8 +9,6 @@ class ProductContainer extends React.Component {
         this.test = this.props.photos;
         this.classes = ['top', 'middle', 'end']
     }
-
-    
     
     render() {
         const listItems = this.test.map((obj) => {

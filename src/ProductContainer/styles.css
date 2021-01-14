@@ -1,5 +1,7 @@
 .mainContainer{
     font-family: Arapey;
+    max-width: 1440px;
+    margin: auto;
 }
 
 .container{

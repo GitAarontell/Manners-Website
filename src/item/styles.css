@@ -3,6 +3,7 @@ p{
 }
 
 .portrait{
+    font-family: Arapey;
     max-width: 1440px;
     display: grid;
     grid-template-columns: 1fr;
@@ -12,9 +13,9 @@ p{
 .portrait button:hover{
     cursor: pointer;
 }
-
+ 
 .portrait:hover > .picture{
-    transform: scale(1.04);
+    top: -10px;
     cursor: pointer;
 }
 
@@ -29,10 +30,12 @@ p{
 }
 
 .picture{
+    position: relative;
     height: 100%;
     width: 100%;
     grid-row: 1/2;
-    transition:all 1s ease;
+    top: 0;
+    transition: top ease 0.5s;
 }
 
 .picture img{
@@ -71,7 +74,7 @@ p{
 }
 
 .sizes-a{
-    visibility: hidden;
+
     margin-top: 5px;
     grid-row: 4/5;
     display: flex;
@@ -79,7 +82,7 @@ p{
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .sizes-a h2{
