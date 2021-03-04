@@ -24,9 +24,10 @@ function Cart(props) {
     });
 
     return (
+        <div className='container-z'>
         <div className='container-c'>
             <div className='container-d'>
-                <h3 style={{ fontSize: "25px" }}>Product</h3>
+                <h3>Product</h3>
                 <h3>Size</h3>
                 <h3>Quantity</h3>
                 <h3>Price</h3>
@@ -38,11 +39,12 @@ function Cart(props) {
                 </div>
             }
         </div>
+        </div>
     );
 }
 
-function mapStateToProps (state) {
-    return {logCart: state.logCart};
+function mapStateToProps(state) {
+    return { logCart: state.logCart };
 }
 
 export default connect(mapStateToProps)(Cart);

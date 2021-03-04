@@ -15,6 +15,8 @@ function createReducer(name = '') {
                 return state + 1;
             case 'Decrement_' + name:
                 return state - 1;
+            case 'RemoveAll':
+                return state - action.payload;
             default:
                 return state;
         }
@@ -94,7 +96,7 @@ function deleter(state, object) {
 
 function DecreaseQuantity(state, object) {
 
-    state.logCart.map( (obj) => {
+    state.logCart.map((obj) => {
         if (obj === object) {
             obj.quantity--;
         }
@@ -128,6 +130,20 @@ export let multiDispatchRemove = (state, object) => {
     return function (dispatch) {
         dispatch({
             type: 'Decrement_'
+        })
+
+        dispatch(
+            remove(state, object)
+        )
+    }
+}
+
+export let removeTotalItem = (state, object, num) => {
+
+    return function (dispatch) {
+        dispatch({
+            type: 'RemoveAll',
+            payload: num
         })
 
         dispatch(

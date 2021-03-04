@@ -6,13 +6,19 @@
     margin: 0 5px 0 5px;
 }
 
+.container-z{
+    max-width: 1400px;
+    align-self: center;
+}
+
 .container-c{
     display: flex;
     flex-direction: column;
     font-family: Arapey;
+    min-width: 1250px;
 }
-
 .container-d{
+    margin: none;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -37,7 +43,6 @@
     max-width: 75px;
 }
 
-
 h7{
     margin: 0;
 }
@@ -48,7 +53,6 @@ h7{
     left: 3%;
 }
 
-
 .characteristics img{
     height: 20px;
     width: 20px;
@@ -56,4 +60,73 @@ h7{
 
 .characteristics:hover{
     cursor: pointer;
+}
+
+@media( max-width: 1225px){
+    .container-c{
+        min-width: 800px;
+    }
+}
+
+@media( max-width: 900px){
+    .container-c{
+        margin-top: 60px;
+    }
+}
+
+@media( max-width: 825px){
+    .container-c{
+        min-width: 650px;
+    }
+}
+
+@media( max-width: 655px){
+    .container-c{
+        min-width: 400px;
+    }
+
+    .container-c h3{
+        font-size: 15px;
+    }
+
+    .imageInformation img {
+        max-height: 75px;
+        max-width: 32px;
+    }
+
+    .characteristics img{
+        height: 10px;
+        width: 10px;
+    }
+
+    .characteristics{
+        position: absolute;
+        top: 40%;
+        left: 3%;
+    }
+}
+
+@media(max-width: 400px){
+    .container-c{
+        min-width: 350px;
+    }
+}
+
+@media(max-width: 320px){
+    .container-c{
+        min-width: 250px;
+    } 
+
+    .characteristics img{
+        height: 0;
+        width: 0;
+    }
+
+    .cartItem img{
+        margin-right: 10px;
+    }
+
+    .cartItem p{
+        margin-right: 10px;
+    }
 }

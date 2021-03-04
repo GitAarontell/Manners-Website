@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { multiDispatchRemove, multiDispatchDecreaseQuantity, multiDispatch } from '../redux.js'
+import { multiDispatchRemove, multiDispatchDecreaseQuantity, multiDispatch, removeTotalItem } from '../redux.js'
 import './styles.css';
 
 function CartItem(props) {
@@ -39,7 +39,7 @@ function CartItem(props) {
             <div style={{ width: "45px" }}>${props.object.price * props.object.quantity}</div>
 
             <div className='characteristics'>
-                <img onClick={() => dispatch(multiDispatchRemove(set, props.object))} src="https://cdns.iconmonstr.com/wp-content/assets/preview/2018/96/iconmonstr-x-mark-thin.png" alt="exit icon" />
+                <img onClick={() => dispatch(removeTotalItem(set, props.object, props.object.quantity))} src="https://cdns.iconmonstr.com/wp-content/assets/preview/2018/96/iconmonstr-x-mark-thin.png" alt="exit icon" />
             </div>
 
         </div>
