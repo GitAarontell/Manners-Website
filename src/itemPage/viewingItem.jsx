@@ -3,6 +3,8 @@ import './styles.css'
 import morePhotos from '../moreData'
 import {multiDispatch} from '../redux.js'
 import {connect} from 'react-redux'
+import {whiteShirt, blackShirt, greyShirt, tanShirt, 
+    bluePants, blackPants, tanPants, blackHat, redHat, blueHat, darkBriefs, pladBriefs, lightBriefs} from '../imageExports'
 
 
 class ViewingItem extends React.Component {
@@ -20,6 +22,8 @@ class ViewingItem extends React.Component {
             type: null,
             size: 'Med'
         }
+        this.images = [whiteShirt, blackShirt, greyShirt, tanShirt, 
+            bluePants, blackPants, tanPants, blackHat, redHat, blueHat, darkBriefs, pladBriefs, lightBriefs];
     }
     
     addSize = (e)=> {
@@ -37,14 +41,17 @@ class ViewingItem extends React.Component {
     }
 
     componentWillMount() {
+        // 10-12 briefs
         let all = Object.values(morePhotos);
+        // so this gets us the 
         let id = parseInt(this.props.match.params.id);
 
+        // looking in moreData and trying to find the correct clothing by matching id
         all.map((a) => {
             a.find((b)=> {
                 if(b.id === id){
                     this.setState({
-                        loadImage: b.clothing,
+                        loadImage: this.images[b.id],
                         name: b.name,
                         price: b.price,
                         type: b.type
@@ -57,8 +64,8 @@ class ViewingItem extends React.Component {
     } 
 
     render() {
-        
-        console.log(this.props.state);
+        //console.log(this.props);
+        //console.log(this.props.state);
         return (
             <div className='holder'>
 

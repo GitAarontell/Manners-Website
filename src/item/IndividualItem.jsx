@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { multiDispatch } from '../redux.js'
-import './styles.css'
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { multiDispatch } from '../redux.js';
+import './styles.css';
+
 
 
 function IndividualItem(props) {
     let set = useSelector(state => state);
-
     let dispatch = useDispatch();
     let [size, setSize] = useState('Med');
     let [array, setArray] = useState(['','selected','']);
@@ -23,13 +23,15 @@ function IndividualItem(props) {
             setSize(size = 'Small');
         }
     }
-    
+    // used to be <img src={props.object.clothing} alt="black T shirt" />
+    // so, props image was returning an object module, when I logged it to console, it showed that the image was actually in 
+    // and object called default so that is what this img src is.
     return (
         <div className='portrait'>
             
             <div className='picture'>
                 <Link to={'/' + props.object.id}>
-                    <img src={props.object.clothing} alt="black T shirt" />
+                    <img src={props.image.default} alt={props.object.name} />
                 </Link>
             </div>
 

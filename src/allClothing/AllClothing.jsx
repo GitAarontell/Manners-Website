@@ -6,14 +6,15 @@ import './styles.css'
 function AllClothing(props) {
 
 
-        const Items = props.photos.map((obj) => {
-            return (
-                <div className='eachItem' key={obj.key}>
-                    <IndividualItem id={obj.id} pic={obj.clothing} name={obj.name} price={obj.price} object={obj}/>                   
-                </div>
-            );
-            
-        });
+    const Items = props.photos.map((obj) => {
+        
+        return (
+            <div className='eachItem' key={obj.key}>
+                <IndividualItem id={obj.id} image={props.images[obj.idx]} name={obj.name} price={obj.price} object={obj}/>                   
+            </div>
+        );
+        
+    });
 
     return (
         <div className='container-a'>

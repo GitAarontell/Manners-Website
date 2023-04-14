@@ -8,14 +8,22 @@ import AllClothing from './allClothing/AllClothing'
 import Footer from './footer/Footer'
 import Cart from './cart/Cart'
 import './styles.css'
+import {whiteShirt, blackShirt, greyShirt, tanShirt, 
+  bluePants, blackPants, tanPants, blackHat, redHat, blueHat, darkBriefs, pladBriefs, lightBriefs} from './imageExports'
 
 
 function App() {
+  let images = {
+    'Shirts': [whiteShirt, blackShirt, greyShirt, tanShirt],
+    'Pants': [bluePants, blackPants, tanPants],
+    'Hats': [blackHat, redHat, blueHat],
+    'Briefs': [darkBriefs, pladBriefs, lightBriefs]
+  }
 
   let catagories = ['Shirts', 'Pants', 'Hats', 'Briefs'];
   let homeContent = catagories.map((types) => {
     return (
-      <ProductContainer photos={morePhotos[types]} type={types} key={types}/>
+      <ProductContainer photos={morePhotos[types]} type={types} key={types} images={images[types]}/>
     );
   });
 
@@ -43,19 +51,19 @@ function App() {
 
           {/*These keys in the routes force it to remount or else photos dont change when clicking between only these components*/}
           <Route key={'somekey'} path="/shirts">
-            <AllClothing photos={morePhotos.Shirts} type='Shirts' />
+            <AllClothing photos={morePhotos.Shirts} images={images['Shirts']} type='Shirts' />
           </Route>
 
           <Route key={'otherkey'} path='/pants'>
-            <AllClothing photos={morePhotos.Pants} type='Pants' />
+            <AllClothing photos={morePhotos.Pants} images={images['Pants']} type='Pants' />
           </Route>
 
           <Route key={'anotherkey'} path='/hats'>
-            <AllClothing photos={morePhotos.Hats} type='Hats' />
+            <AllClothing photos={morePhotos.Hats} images={images['Hats']} type='Hats' />
           </Route>
 
           <Route path='/briefs'>
-            <AllClothing photos={morePhotos.Briefs} type='Briefs' />
+            <AllClothing photos={morePhotos.Briefs} images={images['Briefs']} type='Briefs' />
           </Route>
           
           <Route path='/cart'>
