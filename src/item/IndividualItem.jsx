@@ -43,7 +43,7 @@ function IndividualItem(props) {
             </Link>
 
             <div className='molder'>
-                <button className='adder' onClick={() => dispatch(multiDispatch(props.object.type, props.object.name, size, props.object.clothing, props.object.price, set))}>Add To Cart</button>
+                <button className='adder' onClick={() => dispatch(multiDispatch(props.object.type, props.object.name, size, props.object.clothing, props.object.price, props.object.id, set))}>Add To Cart</button>
             </div>
 
             <div className='sizes-a'>

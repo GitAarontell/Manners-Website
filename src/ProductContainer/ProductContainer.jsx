@@ -16,7 +16,6 @@ class ProductContainer extends React.Component {
 
         // this.test is one of the arrays of objects from moreData.js
         const listItems = this.test.map((obj) => {
-            let idx = 0
             // so if there is an array property in that array then we continue else we skip
             // because I had 4 shirts but 3 of everything else, so I wanted to only display 3 per row in main menu
             // so last shirt does not have the array property

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { multiDispatchRemove, multiDispatchDecreaseQuantity, multiDispatch, removeTotalItem } from '../redux.js'
+import xMark from "../photos/x-mark.png"
 import './styles.css';
 
 function CartItem(props) {
@@ -20,7 +21,7 @@ function CartItem(props) {
     return (
         <div className='cartItem'>
             <div style={{ width: "80px" }} className='imageInformation'>
-                <img src={props.object.pic} alt="" />
+                <img src={props.image} alt="" />
                 <p style={{ fontSize: "15px" }}>{props.object.name}</p>
             </div>
             <p style={{ width: "35px" }} >{props.object.size}</p>
@@ -39,7 +40,7 @@ function CartItem(props) {
             <div style={{ width: "45px" }}>${props.object.price * props.object.quantity}</div>
 
             <div className='characteristics'>
-                <img onClick={() => dispatch(removeTotalItem(set, props.object, props.object.quantity))} src="https://cdns.iconmonstr.com/wp-content/assets/preview/2018/96/iconmonstr-x-mark-thin.png" alt="exit icon" />
+                <img onClick={() => dispatch(removeTotalItem(set, props.object, props.object.quantity))} src={xMark} alt="exit icon" />
             </div>
 
         </div>

@@ -20,7 +20,8 @@ class ViewingItem extends React.Component {
             name: null,
             price: null,
             type: null,
-            size: 'Med'
+            size: 'Med',
+            idx: 0
         }
         this.images = [whiteShirt, blackShirt, greyShirt, tanShirt, 
             bluePants, blackPants, tanPants, blackHat, redHat, blueHat, darkBriefs, pladBriefs, lightBriefs];
@@ -37,7 +38,7 @@ class ViewingItem extends React.Component {
         } else {
             this.setState({size: 'Small'});
         }
-        console.log(e.target);
+        // console.log(e.target);
     }
 
     componentWillMount() {
@@ -51,10 +52,11 @@ class ViewingItem extends React.Component {
             a.find((b)=> {
                 if(b.id === id){
                     this.setState({
-                        loadImage: this.images[b.id],
+                        loadImage: this.images[b.id].default,
                         name: b.name,
                         price: b.price,
-                        type: b.type
+                        type: b.type,
+                        idx: b.id
                     });                    
                 } 
                 return null;
@@ -88,7 +90,7 @@ class ViewingItem extends React.Component {
                     </div>
 
                     <div className='addButton'>
-                        <button onClick={() => this.props.dispatch(multiDispatch(this.state.type, this.state.name, this.state.size, this.state.loadImage, this.state.price, this.props.state))}>Add To Cart</button>
+                        <button onClick={() => this.props.dispatch(multiDispatch(this.state.type, this.state.name, this.state.size, this.state.loadImage, this.state.price, this.state.idx, this.props.state))}>Add To Cart</button>
                     </div>
                 </div>
             </div>

@@ -2,8 +2,12 @@ import React from 'react'
 import { useSelector, connect } from 'react-redux'
 import CartItem from './CartItem'
 import './styles.css'
+import {whiteShirt, blackShirt, greyShirt, tanShirt, 
+    bluePants, blackPants, tanPants, blackHat, redHat, blueHat, darkBriefs, pladBriefs, lightBriefs} from '../imageExports'
 
 function Cart(props) {
+    let images = [whiteShirt, blackShirt, greyShirt, tanShirt, 
+        bluePants, blackPants, tanPants, blackHat, redHat, blueHat, darkBriefs, pladBriefs, lightBriefs];
     let i = 0;
     let set = useSelector(state => state);
 
@@ -17,9 +21,9 @@ function Cart(props) {
     }
 
     let totalCart = props.logCart.map((obj) => {
-
+        console.log(obj);
         return (
-            <CartItem object={obj} key={i++} />
+            <CartItem object={obj} image={images[obj.idx].default} key={i++} />
         );
     });
 

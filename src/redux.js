@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux';
 
 //onClick={() => dispatch(multiDispatch(props.object.type))}
+// this creates and sets the reducers, whcih are the actions that can change the state, for the logTotal state and the logCart state
+// the logShirts state is just for a past example
 export const allReducers = combineReducers({
     logTotal: createReducer(),
     logShirts: createReducer('shirt'), // left this for future example of what I was doing, but has no purpose in the real application
     logCart: reducer
 });
 
-
+// so the logTotal state has a state of 0, and action types increment, decrement, and remove all
 function createReducer(name = '') {
     return function (state = 0, action) {
         switch (action.type) {
@@ -23,6 +25,7 @@ function createReducer(name = '') {
     }
 }
 
+// the logCart state has an initial state of an empty array and the actions add, remove, increase quantity, and decrease quantity
 function reducer(state = [], action) {
     switch (action.type) {
         case 'Add':
@@ -38,10 +41,10 @@ function reducer(state = [], action) {
     }
 }
 
-
-export function add(name, size, pic, price, state) {
+// this is the add function that adds an object with all these parameters to the logCart state
+export function add(name, size, pic, price, idx, state) {
     let check = true;
-
+    // so this first checks to see if the same item is already in the logCart, if it is then just increase the quantity
     if (state.logCart.size !== 0) {
         state.logCart.map((obj) => {
             if ((obj.size === size) && (obj.name === name)) {
@@ -51,7 +54,7 @@ export function add(name, size, pic, price, state) {
             return null;
         });
     }
-
+    // if the item is not in the logCart then we add the item with these parameters in the cart
     if (check) {
         return {
             type: 'Add',
@@ -60,10 +63,11 @@ export function add(name, size, pic, price, state) {
                 size: size,
                 pic: pic,
                 price: price,
-                quantity: 1
+                quantity: 1,
+                idx: idx
             }
         }
-    } else {
+    } else { // if the item was already in the cart then increase quantity of the logTotal state as well
         return {
             type: 'IncreaseQuantity',
             payload: state.logCart
@@ -109,8 +113,8 @@ function DecreaseQuantity(state, object) {
         payload: state.logCart
     });
 }
-
-export let multiDispatch = (info, name, size, pic, price, state) => {
+// this multiDispatch runs the increment, increment info and add functions all at the same time
+export let multiDispatch = (info, name, size, pic, price, state, idx) => {
     return function (dispatch) {
         dispatch({
             type: 'Increment_'
@@ -121,7 +125,7 @@ export let multiDispatch = (info, name, size, pic, price, state) => {
         })
 
         dispatch(
-            add(name, size, pic, price, state)
+            add(name, size, pic, price, state, idx)
         )
     }
 }
