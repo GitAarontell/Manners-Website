@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import cart from '../photos/cart.png'
+import menu from '../photos/menu.png'
+import exitDoor from '../photos/exitDoor.png'
 import './styles.css'
 
 class MainNav extends React.Component {
@@ -72,13 +75,13 @@ class MainNav extends React.Component {
 
                     <div className='cart grid'>
                         <Link className='cartImg' to='/cart'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24"><path d="M10 20.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.304-17l-3.431 14h-2.102l2.541-11h-16.812l4.615 13h13.239l3.474-14h2.178l.494-2h-4.196z"/></svg>
+                            <img src={cart} alt="cart" />
                             {this.setCount(this.props.info.logTotal)}
                         </Link>
                     </div>
 
                     <div className='icon'>
-                        <img onClick={this.handleClick} src="https://cdns.iconmonstr.com/wp-content/assets/preview/2013/240/iconmonstr-menu-6.png" alt="menu" />
+                        <img onClick={this.handleClick} src={menu} alt="menu" />
                     </div>
 
                     <div className={[this.state.key, 'resize'].join(' ')}>
@@ -86,11 +89,11 @@ class MainNav extends React.Component {
                         <h2 onClick={this.handleClick}> <Link to="/pants">Pants</Link> </h2>
                         <h2 onClick={this.handleClick}> <Link to="/hats">Hats</Link> </h2>
                         <h2 onClick={this.handleClick}> <Link to="/briefs">Stylish Briefs</Link> </h2>
-                        <img onClick={this.handleClick} src="https://cdns.iconmonstr.com/wp-content/assets/preview/2019/96/iconmonstr-door-8.png" alt="exit" />
+                        <img onClick={this.handleClick} src={exitDoor} alt="exit" />
                     </div>
                     <Link to='/cart'>
                         <div className='cartBreakout'>
-                            <img src="https://cdns.iconmonstr.com/wp-content/assets/preview/2013/96/iconmonstr-shopping-cart-3.png" alt="cart" />
+                            <img src={cart} alt="cart" />
                             {this.setCount(this.props.info.logTotal)}
                         </div>
                     </Link>
